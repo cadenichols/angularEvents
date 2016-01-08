@@ -10,17 +10,26 @@
 
   <div class="parent" ng-controller='parentCtrl'>
     parentCtrl
-    <span>Message: {{message}}</span>
+    <span>Message: {{parentMessage}}</span>
     <input ng-model='parentText' type="text">
     <button ng-click='click()'>Broadcast</button>
 
-    <div class="child" ng-controller='childCtrl'>
-      childCtrl
-      <span>Message: {{message}}</span>
+    <div class="child" ng-controller='firstChildCtrl'>
+      firstChildCtrl
+      <span>Message: {{childMessage}}</span>
       <input ng-model='childText' type="text">
       <button ng-click='click()'>Emit</button>
-      
     </div>
+
+    
+    <div class="child" ng-controller='secondChildCtrl'>
+      secondChildCtrl
+      <span>Message: {{childMessage}}</span>
+      <input ng-model='childText' type="text">
+      <button ng-click='click()'>Emit</button>
+    </div>
+
+
   </div>  
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="main.js"></script>
