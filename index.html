@@ -11,9 +11,13 @@
   <div class="parent" ng-controller='parentCtrl'>
     parentCtrl
     <span>Message: {{message}}</span>
+    <input ng-model='parentText' type="text">
+    <button ng-click='click()'>Broadcast</button>
 
     <div class="child" ng-controller='childCtrl'>
       childCtrl
+      <span>Message: {{message}}</span>
+      <input ng-model='childText' type="text">
       <button ng-click='click()'>Emit</button>
       
     </div>
