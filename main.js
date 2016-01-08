@@ -17,11 +17,16 @@ app.controller('parentCtrl', function($scope){
   }
 });
 
-app.controller('firstChildCtrl', function($scope){
+app.controller('firstChildCtrl', function($scope, $rootScope){
+  console.log('$scope.$parent:', $scope.$parent);
   $scope.click = function() {
-    $scope.$emit('newMessage', {message: $scope.childText});
+    $rootScope.$broadcast('secondChildEvent', {message: $scope.childText});
     console.log('child emit!');
   };
+
+  $scope.$on('firstChildEvent', function(event, args) {
+    console.log('firstChildEvent:', args);
+  });
 
   $scope.$on('broadcastMessage', function(event, args){
     $scope.childMessage = args.data;
@@ -36,6 +41,10 @@ app.controller('secondChildCtrl', function($scope){
     $scope.$emit('newMessage', {message: $scope.childText});
     console.log('child emit!');
   };
+
+  $scope.$on('secondChildEvent', function(event, args) {
+    console.log('secondChildEvent:', args);
+  });
 
   $scope.$on('broadcastMessage', function(event, args){
     $scope.childMessage = args.data;
