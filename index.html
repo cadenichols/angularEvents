@@ -10,14 +10,14 @@
 
   <div class="parent" ng-controller='parentCtrl'>
     parentCtrl
+    <span>Message: {{message}}</span>
+
     <div class="child" ng-controller='childCtrl'>
       childCtrl
+      <button ng-click='click()'>Emit</button>
       
     </div>
-  </div>
-
-
-  
+  </div>  
   <script src="/bower_components/angular/angular.min.js"></script>
   <script src="main.js"></script>
 </body>
